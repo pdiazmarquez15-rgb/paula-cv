@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Paula Díaz Marquez: innovation and consumer insights leader in healthcare. Experience, case studies and contact.">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Paula Díaz Marquez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single column read like an innovation portfolio review. Each case study carries its real pipeline stage. */
+:root{
+  --bg:#F5F7F6; --surface:#FFFFFF; --fg:#13201E; --muted:#5A6A66; --line:#DCE3E0;
+  --accent:#AE1F57; --accent-soft:#F7E3EB; --teal:#0E6B66; --teal-soft:#DDEFEC;
+  --display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1514; --surface:#151F1D; --fg:#E6EEEB; --muted:#9AABA6; --line:#26332F;
+  --accent:#F2729F; --accent-soft:#3A1726; --teal:#5CC8BF; --teal-soft:#123230; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1514; --surface:#151F1D; --fg:#E6EEEB; --muted:#9AABA6; --line:#26332F;
+  --accent:#F2729F; --accent-soft:#3A1726; --teal:#5CC8BF; --teal-soft:#123230; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);padding-inline:20px;padding-block:0}
+.wrap{max-width:980px;margin:0 auto}
+a{color:var(--teal);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-inline:-20px;padding:12px 20px}
+nav .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+nav .mark{font-family:var(--display);font-weight:800;font-size:18px;color:var(--fg);text-decoration:none}
+nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav ul a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+nav ul a:hover{color:var(--fg)}
+
+section{padding-block:64px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.sec-head{display:flex;flex-direction:column;gap:8px;margin-bottom:32px}
+.sec-head h2{font-size:clamp(28px,4vw,40px);font-weight:800}
+
+/* Hero */
+.hero{padding-block:72px 56px}
+.hero .label{color:var(--accent)}
+.hero h1{font-size:clamp(44px,8vw,88px);font-weight:800;letter-spacing:-.02em;margin-block:12px 20px}
+.hero h1 span{color:var(--accent)}
+.hero .lede{font-size:clamp(18px,2.2vw,22px);max-width:40ch;color:var(--fg)}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:24px;color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tag{font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:var(--surface)}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.stat{background:var(--surface);padding:22px 20px;display:flex;flex-direction:column;gap:6px}
+.stat b{font-family:var(--display);font-size:clamp(30px,4vw,42px);font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;color:var(--muted)}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+.about p{max-width:62ch;margin-bottom:14px}
+.about aside{display:flex;flex-direction:column;gap:14px}
+.about aside div{border-left:2px solid var(--teal);padding-left:14px}
+.about aside b{display:block;font-weight:600}
+.about aside span{font-size:14px;color:var(--muted)}
+@media (max-width:720px){.about{grid-template-columns:1fr}}
+
+/* Experience */
+.job{display:grid;grid-template-columns:190px minmax(0,1fr);gap:24px;padding-block:28px;border-top:1px solid var(--line)}
+.job:first-of-type{border-top:0;padding-top:0}
+.job .when{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.job h3{font-size:24px;font-weight:600}
+.job .co{color:var(--muted);font-size:15px;margin-top:4px}
+.roles{display:flex;flex-direction:column;gap:2px;margin-top:10px}
+.roles div{font-size:15px}
+.roles div b{font-weight:600}
+.job ul{margin:14px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.job li{max-width:70ch}
+.job li strong{color:var(--accent);font-weight:600}
+@media (max-width:640px){.job{grid-template-columns:1fr;gap:8px}}
+
+/* Case studies */
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.case.wide{grid-column:1/-1}
+.case header{display:flex;flex-direction:column;gap:10px}
+.case .top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.stage{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--teal-soft);color:var(--teal);font-weight:500}
+.stage.scale{background:var(--accent-soft);color:var(--accent)}
+.case h3{font-size:22px;font-weight:600}
+.case dl{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 14px;margin:0;font-size:15px}
+.case dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:3px}
+.case dd{margin:0}
+.result{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);font-family:var(--display);font-size:20px;font-weight:600;color:var(--accent)}
+@media (max-width:720px){.cases{grid-template-columns:1fr}}
+
+/* Pipeline legend */
+.pipeline{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px;font-size:13px;color:var(--muted)}
+.pipeline i{font-style:normal;color:var(--line)}
+
+/* AI timeline */
+.ai{display:flex;flex-direction:column;gap:0;position:relative;padding-left:28px}
+.ai::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.ai-step{position:relative;padding-bottom:28px}
+.ai-step:last-child{padding-bottom:0}
+.ai-step::before{content:"";position:absolute;left:-26px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--teal)}
+.ai-step:last-child::before{background:var(--teal)}
+.ai-step h3{font-size:19px;font-weight:600;margin-top:4px}
+.ai-step p{color:var(--muted);max-width:64ch;margin-top:6px}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.skills h3{font-size:17px;font-weight:600;margin-bottom:10px}
+.skills ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:15px;color:var(--muted)}
+@media (max-width:720px){.skills{grid-template-columns:1fr}}
+
+.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px}
+.edu-list{display:flex;flex-direction:column;gap:16px}
+.edu-list div b{display:block;font-weight:600}
+.edu-list div span{font-size:14px;color:var(--muted)}
+@media (max-width:720px){.edu{grid-template-columns:1fr}}
+
+/* Contact */
+.contact h2{font-size:clamp(32px,5vw,52px);font-weight:800;max-width:18ch}
+.contact .rows{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.row .label{width:90px}
+.row output{font-size:18px;font-weight:500;user-select:all}
+.copy{font:500 13px var(--body);padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.copy:hover{border-color:var(--teal)}
+footer{padding-block:28px;color:var(--muted);font-size:13px}
+@media (prefers-reduced-motion:no-preference){.hero h1,.hero .lede{animation:rise .6s ease both}.hero .lede{animation-delay:.08s}}
+@keyframes rise{from{transform:translateY(8px)}to{transform:none}}
+</style>
+</head>
+<body>
+
+
+<nav aria-label="Sections"><div class="wrap">
+  <a class="mark" href="#top">PDM</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Case studies</a></li>
+    <li><a href="#ai">AI</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<main class="wrap" id="top">
+
+<section class="hero">
+  <p class="label">Innovation · Consumer Insights · Transformation</p>
+  <h1>Paula Díaz<br><span>Marquez</span></h1>
+  <p class="lede">I turn innovation strategy into launched products, scaled partnerships and measurable results in regulated healthcare.</p>
+  <div class="meta">
+    <span>Consumer Insights Manager at Novo Nordisk</span>
+    <span>Bogotá, Colombia · open to relocation</span>
+    <span>Spanish · English</span>
+  </div>
+  <div class="tags">
+    <span class="tag">Corporate innovation</span><span class="tag">Open innovation</span><span class="tag">Consumer insights</span><span class="tag">Stage-gate portfolio</span><span class="tag">AI adoption</span><span class="tag">Agile launches</span><span class="tag">Design thinking</span><span class="tag">Change management</span>
+  </div>
+</section>
+
+<section aria-label="Impact in numbers" style="padding-block:40px">
+  <div class="stats">
+    <div class="stat"><b>13+</b><span>years leading innovation, product and operations</span></div>
+    <div class="stat"><b>#6</b><span>ANDI innovation ranking 2025, top pharma company</span></div>
+    <div class="stat"><b>+20%</b><span>prescriptions where the Telepatía tool runs</span></div>
+    <div class="stat"><b>8+</b><span>products and services launched, 2 new business lines</span></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="sec-head"><p class="label">About</p><h2>Innovation that reaches people and moves the business</h2></div>
+  <div class="about">
+    <div>
+      <p>I build the systems that let companies innovate on purpose: portfolio governance, experimentation, partnerships and the culture around them. Then I take projects through to launch and measure what they changed.</p>
+      <p>Over three years in multinational pharma I have led startup partnerships that reach thousands of patients, set up consumerization for the Novo Nordisk affiliate in Colombia, and helped the company reach its best innovation ranking ever. Before that I scaled a consultancy's operations, launched new business lines and shipped a fintech MVP with a data science team.</p>
+      <p>I enjoy creating and researching new ways of doing things, and I care that innovation has budget, visibility and a seat with leadership.</p>
+    </div>
+    <aside>
+      <div><b>Stanford GSB LEAD</b><span>Corporate innovation program, 2021–2022</span></div>
+      <div><b>Master in Operations &amp; Innovation</b><span>OBS Business School · Universitat de Barcelona</span></div>
+      <div><b>Industrial Engineer</b><span>Universidad El Bosque</span></div>
+      <div><b>AMEC Young Professional of the Year</b><span>Highly Commended, 2020</span></div>
+    </aside>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="sec-head"><p class="label">Experience</p><h2>Where I have built and delivered</h2></div>
+
+  <article class="job">
+    <div class="when">Jun 2024 – Present</div>
+    <div>
+      <h3>Novo Nordisk</h3>
+      <p class="co">Global pharmaceutical company · Colombian affiliate</p>
+      <div class="roles">
+        <div><b>Consumer Insights Manager</b>, Marketing · Feb 2026 – Present</div>
+        <div><b>Consumer Experience &amp; Innovation Manager</b> · Jun 2024 – Jan 2026</div>
+      </div>
+      <ul>
+        <li>Moved into a newly created Consumer Insights role in Marketing after a restructuring; report to the Marketing Director, lead 2 people plus an agency and a budget of <strong>~COP 1 billion a year</strong>.</li>
+        <li>Localized the global consumer segmentation for Colombia with market research, pharmacy and Rappi data, social listening and partner data, and built segment-based journeys that grew message conversion <strong>10–12% per quarter</strong>.</li>
+        <li>Set up consumerization governance for the affiliate: a monthly Consumer Council, decision rules and readiness standards used by the whole marketing team.</li>
+        <li>Built a stage-gate innovation portfolio on Azure DevOps with steering committee approvals, and helped place the affiliate <strong>#6 in the 2025 ANDI innovation ranking</strong>.</li>
+        <li>Applied agile ways of working to the Colombian launch of Wegovy.</li>
+        <li>Ran an innovation culture program with 50 participants and about 40 champions across a 200+ person affiliate.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="job">
+    <div class="when">May 2023 – Jun 2024</div>
+    <div>
+      <h3>Exeltis</h3>
+      <p class="co">Pharmaceutical company, women's health · Innovation Manager</p>
+      <ul>
+        <li>Applied agile to the INVIMA regulatory submission process and cut cycle times by <strong>15–20%</strong>, the largest improvement of any area.</li>
+        <li>Built a Jira-based stage-gate innovation system with leadership approvals for the full startup and innovation pipeline.</li>
+        <li>Trained the whole company, about <strong>70 people</strong>, in innovation, agile and lean.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="job">
+    <div class="when">Sep 2022 – May 2023</div>
+    <div>
+      <h3>Empowerment Labs</h3>
+      <p class="co">US fintech startup · Product Manager, System Data team</p>
+      <ul>
+        <li>Led <strong>4 data scientists</strong> building the data layer of a wealth super app for middle-income US consumers.</li>
+        <li>Shipped all <strong>7 MVP features</strong> to production in about six months.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="job">
+    <div class="when">Sep 2013 – Sep 2022</div>
+    <div>
+      <h3>buho</h3>
+      <p class="co">Communications and reputation consultancy</p>
+      <div class="roles">
+        <div><b>Innovation &amp; Operations Manager</b> · Jan 2018 – Sep 2022</div>
+        <div><b>Director of Business Operations</b> · Sep 2013 – Jan 2018</div>
+      </div>
+      <ul>
+        <li>Led operations of up to <strong>60 people</strong> while the company grew from about 30 to 70 employees and moved from public into private-sector clients.</li>
+        <li>Delivered the company's first AI project and cut the cost of its most expensive process by <strong>40%</strong>.</li>
+        <li>Reached 100% on-time delivery with new quality processes and client satisfaction tracking.</li>
+        <li>Certified the innovation management system under ICONTEC NTC 5801 and secured <strong>COP 300 million</strong> in Minciencias tax benefits.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="job">
+    <div class="when">2011 – 2013</div>
+    <div>
+      <h3>Earlier roles</h3>
+      <p class="co">Process Lead at SITEL, redesigning processes across Latin American markets · Senior Process Lead at Eficacia · Training intern at Emgesa</p>
+    </div>
+  </article>
+</section>
+
+<section id="work">
+  <div class="sec-head">
+    <p class="label">Case studies</p>
+    <h2>Selected projects</h2>
+    <div class="pipeline"><span>Each project shows its current stage in the pipeline:</span> <span class="stage">Adopted</span><i>·</i><span class="stage scale">Scaling</span><i>·</i><span class="stage">In production</span></div>
+  </div>
+  <div class="cases">
+
+    <article class="case wide">
+      <header><div class="top"><span class="label">Novo Nordisk · Open innovation</span><span class="stage scale">Scaling</span></div>
+      <h3>Telepatía: an in-clinic tool co-created with a startup</h3></header>
+      <dl>
+        <dt>Challenge</dt><dd>Doctors needed faster consultations and better support to spot diagnosis and treatment opportunities.</dd>
+        <dt>Approach</dt><dd>Co-created with Telepatía a tool for the doctor's office whose algorithm, built with Novo Nordisk, suggests new diagnoses and treatment starts while making the visit smoother for patients.</dd>
+        <dt>My role</dt><dd>Partnership lead, from co-creation to national rollout.</dd>
+      </dl>
+      <p class="result">100 clinics nationwide · +20% prescriptions</p>
+    </article>
+
+    <article class="case">
+      <header><div class="top"><span class="label">Novo Nordisk · Digital health</span><span class="stage scale">Scaling</span></div>
+      <h3>DocDoc, Colombia's first virtual obesity clinic</h3></header>
+      <dl>
+        <dt>Challenge</dt><dd>Patients struggled to get digital access to obesity care.</dd>
+        <dt>Approach</dt><dd>A partnership that opens a digital route to treatment, with messaging tuned per consumer segment. Next step: a 360° digital journey for out-of-pocket patients.</dd>
+      </dl>
+      <p class="result">2,000 patients · ~1,600 prescriptions (2026)</p>
+    </article>
+
+    <article class="case">
+      <header><div class="top"><span class="label">Novo Nordisk · Market Access</span><span class="stage">Adopted</span></div>
+      <h3>Territorial Maturity Model</h3></header>
+      <dl>
+        <dt>Challenge</dt><dd>Regional health authorities had no common way to measure readiness for better health outcomes.</dd>
+        <dt>Approach</dt><dd>A self-assessment methodology plus tailored action plans, built with the Market Access team. It became the regional performance and value-offer guide.</dd>
+      </dl>
+      <p class="result">7 regional authorities · ANDI award entry</p>
+    </article>
+
+    <article class="case">
+      <header><div class="top"><span class="label">Novo Nordisk · Consumer insights</span><span class="stage">In production</span></div>
+      <h3>Synthetic consumers for message testing</h3></header>
+      <dl>
+        <dt>Challenge</dt><dd>Testing marketing materials with traditional research was slow and costly.</dd>
+        <dt>Approach</dt><dd>AI-generated synthetic profiles built from our own segment data to pre-test messages and materials.</dd>
+      </dl>
+      <p class="result">~COP 200 million saved per year</p>
+    </article>
+
+    <article class="case">
+      <header><div class="top"><span class="label">Exeltis · Process innovation</span><span class="stage">Adopted</span></div>
+      <h3>Agile for regulatory submissions</h3></header>
+      <dl>
+        <dt>Challenge</dt><dd>INVIMA registration filings took too long.</dd>
+        <dt>Approach</dt><dd>Brought agile rituals and visual management to the regulatory team's submission process.</dd>
+      </dl>
+      <p class="result">15–20% faster cycle times</p>
+    </article>
+
+  </div>
+</section>
+
+<section id="ai">
+  <div class="sec-head"><p class="label">AI in my work</p><h2>Putting AI to work, early and often</h2></div>
+  <div class="ai">
+    <div class="ai-step"><p class="label">buho · 2018–2022</p><h3>First AI project: automated content categorization</h3><p>Automated the consultancy's most expensive manual process, well before AI was mainstream, cutting its cost by 40%.</p></div>
+    <div class="ai-step"><p class="label">Empowerment Labs · 2022–2023</p><h3>Leading a data science team</h3><p>Ran the data layer that powered personalized financial guidance in a US super app.</p></div>
+    <div class="ai-step"><p class="label">Novo Nordisk · 2024–2025</p><h3>Synthetic users and AI-native startups</h3><p>Introduced synthetic consumer profiles for message testing and partnered with startups that use AI for analytics and care delivery.</p></div>
+    <div class="ai-step"><p class="label">Novo Nordisk · 2026</p><h3>A co-created clinical algorithm at national scale</h3><p>Telepatía's tool, built with us, now suggests diagnoses and treatment starts in 100 clinics.</p></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-head"><p class="label">Skills</p><h2>What I bring</h2></div>
+  <div class="skills">
+    <div><h3>Innovation &amp; strategy</h3><ul><li>Innovation strategy and systems</li><li>Open innovation and startup partnerships</li><li>Design thinking</li><li>Consumer segmentation and insights</li><li>Strategic planning</li></ul></div>
+    <div><h3>Delivery &amp; governance</h3><ul><li>Stage-gate portfolio management</li><li>Agile and lean</li><li>Product launches and MVPs</li><li>Budget and risk management</li><li>Azure DevOps · Jira</li></ul></div>
+    <div><h3>Leadership</h3><ul><li>Cross-functional and matrix leadership</li><li>Stakeholder management with global and regional teams</li><li>Change management and culture</li><li>Training and teaching</li><li>Data-driven decision making</li></ul></div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="sec-head"><p class="label">Education &amp; teaching</p><h2>Learning, and teaching what I learn</h2></div>
+  <div class="edu">
+    <div class="edu-list">
+      <div><b>LEAD Program, Corporate Innovation</b><span>Stanford Graduate School of Business · 2021–2022</span></div>
+      <div><b>Master in Operations and Innovation Management</b><span>OBS Business School · Universitat de Barcelona · 2018–2019</span></div>
+      <div><b>Specialization in Innovation and Business Development</b><span>Universidad Externado de Colombia · 2016–2018</span></div>
+      <div><b>B.Sc. Industrial Engineering</b><span>Universidad El Bosque · 2006–2011</span></div>
+    </div>
+    <div class="edu-list">
+      <div><b>Introduction to Innovation</b><span>Lecturer · Women Breaking Barriers program, Universidad Externado de Colombia</span></div>
+      <div><b>Measurement and Evaluation of Innovation Projects</b><span>Lecturer · Continuing education, Universidad de los Andes</span></div>
+      <div><b>Women Breaking Barriers redesign</b><span>Redesigned the program with storytelling and design thinking</span></div>
+      <div><b>AMEC Young Professional of the Year</b><span>Highly Commended · International Association for the Measurement and Evaluation of Communication, 2020</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <p class="label">Contact</p>
+  <h2>Let's talk about what you want to build next.</h2>
+  <div class="rows">
+    <div class="row"><span class="label">Email</span><output id="c-email">paula0615@hotmail.com</output><button class="copy" type="button" data-copy="c-email">Copy</button></div>
+    <div class="row"><span class="label">Phone</span><output id="c-phone">+57 300 651 5262</output><button class="copy" type="button" data-copy="c-phone">Copy</button></div>
+    <div class="row"><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/paula-d%C3%ADaz-marquez-447a8051" target="_blank" rel="noopener">linkedin.com/in/paula-díaz-marquez ↗</a></div>
+  </div>
+</section>
+
+</main>
+<footer class="wrap">Paula Díaz Marquez · Bogotá, Colombia</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var el=document.getElementById(btn.dataset.copy), text=el.textContent;
+    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1600)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected'};
+    try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
+  });
+});
+</script>
+
+</body>
+</html>
